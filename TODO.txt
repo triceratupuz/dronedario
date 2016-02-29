@@ -1,0 +1,1 @@
+- take snapshot from event editor (record actual oscillators parameters)

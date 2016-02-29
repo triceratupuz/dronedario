@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../css/tpzmansty.css">
+<title>Dronedario Manual - Audio configuration</title>
+</head>
+<body>
+
+<h1>Audio configuration</h1>
+<h2>General rule</h2>
+<p>Audio setup/settings must be configured by editing the file .csound6rc in the root directory, content of the file must be in a cSound format. 
+For available options see the <a href="http://www.csounds.com/manual/html/CommandFlagsCategory.html">Canonical Csound Reference Manual - Command-line Flags</a>
+<h2>Some Hints</h2>
+<p>--omacro:SRATE=XXXXX -set sample rate (audio rate) to match your system</p>
+<p>--omacro:KRATE=XXX -set control rate</p>
+<p>-iadc -set audio input device, if nothing is specified uses system default device</p>
+<p>-odac - set audio output device, if nothing is specified uses system default device</p>
+<p>-b - set number of samples stored in i/o software buffer, if nothing is specified uses default csound value</p>
+<p>-B - set number of samples stored in i/o hardware buffer, if nothing is specified uses default csound value</p>
+<p>-m0 - disable csound message printing in the console</p>
+<a href="../Manual.html#index">
+Back to main page</a>
+</body>
+</html>

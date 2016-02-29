@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../css/tpzmansty.css">
+<title>Dronedario Manual - Actions Panel</title>
+</head>
+<body>
+
+<h1>Actions Panel</h1>
+<img src="../img/dd_ap.jpg"/>
+<p>
+Actions panel allows to do some actions on the oscillators without having to do them individually
+<ul>
+<li>
+Kill All - turn off immediately all the oscillators running (volume to 0.00 for all)
+</li>
+<li>
+Volume Mul - apply multiplication factor selected to all the oscillators running
+</li>
+<li>
+Event Edit - open the event editor
+</li>
+</ul>
+</p>
+
+<h1>Event Editor</h1>
+<img src="../img/eed.jpg"/>
+<p>
+Event editor allows to perform actions on groups of oscillators.<br>
+It preserve all the commands applied in memory files; files are stored in the "save" folder.<br>
+When opened it load the last used memory file.
+<ul>
+<li>
+New - create a new empty memory file
+</li>
+<li>
+Open - open a mamory file
+</li>
+<li>
+SaveAs - save current memory file with name
+</li>
+<li>
+File: - indicates memory file in use
+</li>
+<li>
+History - a scrollable list of all commands appied (read only to consult and copy in "Command")
+</li>
+<li>
+Command - a textbox to write the command
+</li>
+<li>
+Do - the button to launch the command written in "Command"
+</li>
+</ul>
+</p>
+
+
+
+<h2>Commands</h2>
+<p>
+The basic command structure is:<br>
+(N1 N2...)vWWpXXmYYtZZ<br>
+where:
+<ul>
+<li>NX is the corresponding number of the oscillator(s), oscillators numbers must be within brakets and separated by space</li> 
+<li>
+v is the switch to provide volume information to oscillators, if omitted volume will not be changed
+</li>
+<li>
+WW is a number (range 0.0 - 1.0) to provide volume value to oscillators, if switch is omitted volume will not be changed
+</li>
+<li>
+p is the switch to provide pan information to oscillators, if omitted pan will not be changed
+</li>
+<li>
+XX is a number (range 0.0 - 1.0 / 0.5 is center) to provide pan value to oscillators, if switch is omitted pan will not be changed
+</li>
+<li>
+m is the switch to provide modulation information to oscillators, if omitted pan will not be changed
+</li>
+<li>
+YY is an integer (from 0 to the lenght of the dropdown menu list) to provide modulation value to oscillators, if switch is omitted modulation will not be changed
+</li>
+<li>
+t is the switch to schedule in the future actions to oscillators, if omitted action will happen immediately
+</li>
+<li>
+ZZ is an float to provide the time (expressed as ratio of the global BpM) at wich action will happen
+</li>
+</ul>
+Several oscillators group could be controlled with the same command, just put a semicolon between different actions group.<br>
+Example:<br>
+(55 66) v0.1p.1;(56 67) v0.1p.9
+</p>
+
+
+<a href="../Manual.html#index">
+Back to main page</a>
+</body>
+</html>

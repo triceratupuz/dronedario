@@ -1,0 +1,12 @@
+;Dronedario Audio Options
+--omacro:SRATE=44100
+--omacro:KRATE=64
+-odac
+-d
+-m0
+;-iadc:system:capture_ 
+;-odac:system:playback_
+;-+rtaudio=jack 
+; -b 128 -B 512
+; -+jack_client=Dronedario
+ 
