@@ -19,4 +19,4 @@ Some features:
 
 
 ## Installation
-No installation required, just copy all the files (preserving folders structure) and execute TPZ_Dronetron.py python file (all dependancies above must be already installed).
+No installation required, just copy all the files (preserving folders structure) and execute TPZ_Dronedario.py python file (all dependancies above must be already installed).

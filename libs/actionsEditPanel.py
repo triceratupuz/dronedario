@@ -106,7 +106,7 @@ class ActionsPanel(wx.Panel):
 					self.timerActionStart()
 					#pass
 				else:
-					print "UNtimed"
+					#print "UNtimed"
 					if item[1] >= 0.0:
 						vol = item[1]
 						if vol > 1.0:

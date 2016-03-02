@@ -71,11 +71,11 @@ class KeybPanel(wx.Panel):
 			sumlist.extend(x for x in self.oldactivelist if x not in sumlist)
 			if len(newactivelist) > 0:#there are active oscillators
 				message = "f 10 0 128 -2 %d" % len(newactivelist)
-				print newactivelist
+				#print newactivelist
 				for value in newactivelist:
 					message = message + (" %d" % value)
 				#send the list to csound for sequencers
-				print message
+				#print message
 				self.cSound.InputMessage(message + "\n")
 				for item in sumlist:
 					if item in newactivelist and item not in self.oldactivelist:
