@@ -22,16 +22,23 @@ class ActionsPanel(wx.Panel):
 		
 		#File field
 		self.filename = self.retriveLastFile()
-		self.filesizer = wx.BoxSizer(wx.HORIZONTAL)
+		self.filesizer = wx.GridBagSizer(hgap = 3, vgap = 3)
+		
 		self.newB = wx.Button(self, -1, label='New')
 		self.Bind(wx.EVT_BUTTON, self.doNewF, self.newB)
-		self.filesizer.Add(self.newB, 0,flag=wx.EXPAND)
+		self.filesizer.Add(self.newB, pos=(0,0), flag=wx.ALL)
+		
 		self.openB = wx.Button(self, -1, label='Open')
 		self.Bind(wx.EVT_BUTTON, self.doOpenF, self.openB)
-		self.filesizer.Add(self.openB, 0,flag=wx.EXPAND)
+		self.filesizer.Add(self.openB, pos=(0,1), flag=wx.ALL)
+		
 		self.saveasB = wx.Button(self, -1, label='SaveAs')
 		self.Bind(wx.EVT_BUTTON, self.doSaveAsF, self.saveasB)
-		self.filesizer.Add(self.saveasB, 0,flag=wx.EXPAND)
+		self.filesizer.Add(self.saveasB, pos=(1,0), flag=wx.ALL)
+		
+		self.snapshB = wx.Button(self, -1, label='TakeSnap')
+		self.Bind(wx.EVT_BUTTON, self.doSnapshot, self.snapshB)
+		self.filesizer.Add(self.snapshB, pos=(1,1), flag=wx.ALL)
 		
 		
 		self.fileT = wx.StaticText(self, -1, "File: " + self.filename, style= wx.ALIGN_CENTER | wx.TE_RICH)
@@ -254,6 +261,25 @@ class ActionsPanel(wx.Panel):
 		self.setLastFile()
 		self.fileT.SetLabel("File: " + self.filename)
 		self.sizer.Layout()
+		
+	def doSnapshot(self, event):
+		'''record active osillls'''
+		str = ""
+		for item in self.target.keypanel.oscillators:
+			vol = item.vol.GetValue()
+			if vol > 0.01:
+				note = item.counter
+				pan = item.vol.GetValue()
+				mod = item.speedvalue.GetSelection()
+				str = str + "(%d)v%.3fp%.3fm%d;" % (note, vol, pan, mod)
+		if str <> '':
+			self.memory.append(str)
+			#print self.memory
+			f = open("save/" + self.filename,"a")
+			f.write(str+"\n")
+			f.close()
+			self.hystory.AppendText(str + '\n')#add to hystory
+			self.hystindex = len(self.memory) - 1
 		
 
 

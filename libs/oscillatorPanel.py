@@ -54,7 +54,8 @@ class OscillatorPanel(wx.Panel):
 		
 		self.speedList = ["0.0", "0.03125","0.0625", "0.125", "0.25", "0.333", "0.5", "0.666", "0.75", "1.0", "2.0", "3.0", "4.0", "5.0", "6.0", "7.0", "8.0", "9.0", "10.0"] 
 		self.speedvalue = wx.ComboBox(self, -1, choices=self.speedList, size=wx.Size(60, 20))
-		self.speedvalue.SetValue("0.0")
+		#self.speedvalue.SetValue("0.0")
+		self.speedvalue.SetSelection(0)
 		self.Bind(wx.EVT_COMBOBOX, self.setSpeed, self.speedvalue)
 		self.cSound.SetChannel("spe_"+str(self.counter), 0.0)
 		
