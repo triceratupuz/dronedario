@@ -269,7 +269,7 @@ class ActionsPanel(wx.Panel):
 			vol = item.vol.GetValue()
 			if vol > 0.01:
 				note = item.counter
-				pan = item.vol.GetValue()
+				pan = item.pan.GetValue()
 				mod = item.speedvalue.GetSelection()
 				str = str + "(%d)v%.3fp%.3fm%d;" % (note, vol, pan, mod)
 		if str <> '':
