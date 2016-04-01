@@ -11,7 +11,6 @@ zakinit 4, 1
 ;TUNING
 ;MIDI 0 = 8Hz
 
-
 ;											0		1	2	 3b	3   4  5b   5    6b
 ginumer ftgen 1, 0, 16, -2, 1, 256, 9, 32, 81, 4, 1024, 3, 128, 27, 16, 243 
 gidenom ftgen 2, 0, 16, -2, 1, 243, 8, 27, 64, 3, 729, 2, 81, 16, 9, 128
@@ -76,6 +75,15 @@ chn_k "reverbFe", 1
 chn_k "reverbFr", 1
 chn_k "reverbDW", 1
 chn_k "reverbLFr", 1
+
+
+opcode AtanLimit, a, a
+ain xin
+aout = 2 * taninv(ain) / 3.1415927
+xout aout
+endop
+
+
 
 instr 1
 gkbpm chnget "bpm"
@@ -342,8 +350,8 @@ alhr, arhr reverbsc aL, aR, kfblvlp, kfcop
 alhr buthp alhr, khpp
 arhr buthp arhr, khpp
 
-apoL = aL * cos(krdwp * $M_PI_2) + alhr * sin(krdwp * $M_PI_2)
-apoR = aR * cos(krdwp * $M_PI_2) + arhr * sin(krdwp * $M_PI_2)
+apoL AtanLimit aL * cos(krdwp * $M_PI_2) + alhr * sin(krdwp * $M_PI_2)
+apoR AtanLimit aR * cos(krdwp * $M_PI_2) + arhr * sin(krdwp * $M_PI_2)
 
 outs apoL, apoR
 zacl 0, 3
